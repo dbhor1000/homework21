@@ -126,7 +126,7 @@ public class Main {
 
         MapOfMechanics map = new MapOfMechanics(); //генерация объекта Мапа механиков
 
-        Mechanic mechanic1 = new Mechanic("Алексей Петрович", "Автомобильная компания 1", true, true, true);
+        Mechanic mechanic1 = new Mechanic("Алексей Андреевич", "Автомобильная компания 1", true, true, true);
         Mechanic mechanic2 = new Mechanic("Антон Игнатьевич", "Автомобильная компания 1", false, true, true);
         Mechanic mechanic3 = new Mechanic("Сергей Иванович", "Автомобильная компания 1", false, true, true);
         Mechanic mechanic4 = new Mechanic("Иван Евгеньевич", "Автомобильная компания 2", true, false, true);
