@@ -98,19 +98,21 @@ public class Main {
         //Метод интерфейся DriverAndCarInformation теперь работает по-другому и выводит механиков, обслуживающих автомобиль.
         //Подклассам класса Transport был добавлен список в качестве поля, для учёта механиков.
 
-        ArrayList<Transport> raceParticipants = new ArrayList<Transport>();
-        raceParticipants.add(car1);
-        raceParticipants.add(car2);
-        raceParticipants.add(car3);
-        raceParticipants.add(car4);
-        raceParticipants.add(truck1);
-        raceParticipants.add(truck2);
-        raceParticipants.add(truck3);
-        raceParticipants.add(truck4);
-        raceParticipants.add(bus1);
-        raceParticipants.add(bus2);
-        raceParticipants.add(bus3);
-        raceParticipants.add(bus4);
+
+        Mechanic mechanic1 = new Mechanic("Алексей Петрович", "Автомобильная компания 1", true, true, true);
+        Mechanic mechanic2 = new Mechanic("Антон Игнатьевич", "Автомобильная компания 1", false, true, true);
+        Mechanic mechanic3 = new Mechanic("Сергей Иванович", "Автомобильная компания 1", false, true, true);
+        Mechanic mechanic4 = new Mechanic("Иван Евгеньевич", "Автомобильная компания 2", true, false, true);
+        Mechanic mechanic5 = new Mechanic("Артур Денисович", "Автомобильная компания 2", false, false, true);
+        Mechanic mechanic6 = new Mechanic("Денис Артурович", "Автомобильная компания 2", true, true, true);
+        Mechanic mechanic7 = new Mechanic("Дмитрий Борисович", "Автомобильная компания 2", false, true, true);
+        Mechanic mechanic8 = new Mechanic("Пётр Андреевич", "Автомобильная компания 2", true, false, true);
+        Mechanic mechanic9 = new Mechanic("Семён Сергеевич", "Автомобильная компания 2", false, true, false);
+        Mechanic mechanic10 = new Mechanic("Владимир Владимирович", "Автомобильная компания 2", false, true, true);
+        Mechanic mechanic11 = new Mechanic("Александр Сергеевич", "Автомобильная компания 2", true, true, false);
+        Mechanic mechanic12 = new Mechanic("Дмитрий Иванивич", "Автомобильная компания 2", false, true, true);
+
+
 
         //ДЗ от 11 января. --->
         //Внесены изменения по сравнению с версией от 9 января. Теперь объекты классов Car, Truck, Vehicle имеют hashMap mechanics в качестве поле вместо списка
@@ -126,17 +128,9 @@ public class Main {
 
         MapOfMechanics map = new MapOfMechanics(); //генерация объекта Мапа механиков
 
-        Mechanic mechanic1 = new Mechanic("Алексей Андреевич", "Автомобильная компания 1", true, true, true);
-        Mechanic mechanic2 = new Mechanic("Антон Игнатьевич", "Автомобильная компания 1", false, true, true);
-        Mechanic mechanic3 = new Mechanic("Сергей Иванович", "Автомобильная компания 1", false, true, true);
-        Mechanic mechanic4 = new Mechanic("Иван Евгеньевич", "Автомобильная компания 2", true, false, true);
-        Mechanic mechanic5 = new Mechanic("Артур Денисович", "Автомобильная компания 2", false, false, true);
-        Mechanic mechanic6 = new Mechanic("Денис Артурович", "Автомобильная компания 2", true, true, true);
-        Mechanic mechanic7 = new Mechanic("Дмитрий Борисович", "Автомобильная компания 2", false, true, true);
-
-        mechanic1.engageTechnicalService(car1, mechanic1, map);  //Механик обслуживает автомобиль 1
-        mechanic1.engageTechnicalService(car2, mechanic1, map);  //Механик не может обслуживать два автомобиля сразу
-        mechanic2.engageTechnicalService(car1, mechanic2, map); //Этот автомобиль чинит другой механик
+        mechanic1.engageTechnicalService(car1, mechanic1);  //Механик обслуживает автомобиль 1
+        mechanic1.engageTechnicalService(car2, mechanic1);  //Механик не может обслуживать два автомобиля сразу
+        mechanic2.engageTechnicalService(car1, mechanic2); //Этот автомобиль чинит другой механик
         mechanic3.engageTechnicalService(bus1, mechanic3); //Механик чинит автобус
         mechanic4.engageTechnicalService(truck1, mechanic4); //Механик чинит грузовик
         mechanic5.engageTechnicalService(truck1, mechanic5);  //Этот грузовик чинит другой механик.
@@ -146,6 +140,25 @@ public class Main {
         car1.requestDriverAndCarInformationMap(car1);
         truck1.requestDriverAndCarInformationMap(truck1);
         bus1.requestDriverAndCarInformationMap(bus1);
+
+        //Вместо списка транспортных средств теперь мап механиков, а транспортные средства в роли ключей.
+        //При выводе механика по транспортному средству отображается имя или null.
+        HashMap<Transport, Mechanic> raceParticipants = new HashMap<>();
+        raceParticipants.put(car1, car1.mechanics.get(car1));
+        raceParticipants.put(car2, car1.mechanics.get(car2));
+        raceParticipants.put(car3, car1.mechanics.get(car3));
+        raceParticipants.put(car4, car1.mechanics.get(car4));
+        raceParticipants.put(truck1, truck1.mechanics.get(truck1));
+        raceParticipants.put(truck2, truck2.mechanics.get(truck2));
+        raceParticipants.put(truck3, truck3.mechanics.get(truck3));
+        raceParticipants.put(truck4, truck4.mechanics.get(truck4));
+        raceParticipants.put(bus1, bus1.mechanics.get(bus1));
+        raceParticipants.put(bus2, bus2.mechanics.get(bus2));
+        raceParticipants.put(bus3, bus3.mechanics.get(bus3));
+        raceParticipants.put(bus4, bus4.mechanics.get(bus4));
+
+        System.out.println(raceParticipants.get(truck1));
+        System.out.println(raceParticipants.get(car3));
 
 
 

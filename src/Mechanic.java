@@ -28,7 +28,7 @@ public class Mechanic {
         return name;
     }
 
-    public void engageTechnicalService(Car car, Mechanic mechanic, MapOfMechanics map){        //сервис для автомобилей, одновременно чинить автомобиль могут до 2 человек
+    public void engageTechnicalService(Car car, Mechanic mechanic){        //сервис для автомобилей, одновременно чинить автомобиль могут до 2 человек
 
         if(worksWithCars == true && (car.mechanics.size() < 1) && atWork == false){
 
