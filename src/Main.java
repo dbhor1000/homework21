@@ -109,8 +109,8 @@ public class Main {
         Mechanic mechanic8 = new Mechanic("Пётр Андреевич", "Автомобильная компания 2", true, false, true);
         Mechanic mechanic9 = new Mechanic("Семён Сергеевич", "Автомобильная компания 2", false, true, false);
         Mechanic mechanic10 = new Mechanic("Владимир Владимирович", "Автомобильная компания 2", false, true, true);
-        Mechanic mechanic11 = new Mechanic("Александр Сергеевич", "Автомобильная компания 2", true, true, false);
-        Mechanic mechanic12 = new Mechanic("Дмитрий Иванивич", "Автомобильная компания 2", false, true, true);
+        Mechanic mechanic11 = new Mechanic("Александр Сергеевич", "Автомобильная компания 3", true, true, false);
+        Mechanic mechanic12 = new Mechanic("Дмитрий Иванивич", "Автомобильная компания 3", false, true, true);
 
 
 
